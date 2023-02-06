@@ -60,7 +60,9 @@ if(BACKWARD_SHARED)
     set(libtype SHARED)
 endif()
 add_library(backward SHARED ${libtype} src/backward.cpp)
+set_target_properties(backward PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 add_backward(backward)
+
 target_compile_definitions(backward PUBLIC ${BACKWARD_DEFINITIONS})
 target_include_directories(backward PUBLIC ${BACKWARD_INCLUDE_DIRS})
 
